@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>CustoMemo Login</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+
+    <div class="login">
+        <h1>Login</h1>
+        <h:form>
+           
+            <h:inputText pt:placeholder="User name" binding="#{username}" required="true" style="text-align: center"/>
+            <h:inputSecret pt:placeholder="Password" binding="#{password}" required="true" style="text-align: center"/>
+            <h:commandButton value="OK" class="btn btn-primary btn-block btn-large" action="#{admin.login(username.value, password.value)}"/>
+            <br/>
+            <h:commandButton value="Registration" class="btn btn-primary btn-block btn-large" action="reg"/>
+        </h:form>
+<br/>
+    <br/>
+    <br/>
+    <br/>
+    <h4>If you're interested, try it! </h4>
+    <h4>Username : Test</h4>
+    <h4>Password : test</h4>
+    </div> 
+    
+   
+
+    
+
+</html>
+

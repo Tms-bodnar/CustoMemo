@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="admin/admin.xhtml" x="390" y="154" zoom="true"/>
+        <Node id="admin/guestsadmin.xhtml" x="104" y="274" zoom="true"/>
+        <Node id="error.xhtml" x="909" y="155" zoom="true"/>
+        <Node id="admin/deletetreatment.xhtml" x="849" y="321" zoom="true"/>
+        <Node id="index.xhtml" x="438" y="7" zoom="true"/>
+        <Node id="admin/addtreatment.xhtml" x="663" y="406" zoom="true"/>
+        <Node id="reg.xhtml" x="11" y="89" zoom="true"/>
+        <Node id="admin/delete.xhtml" x="34" y="396" zoom="true"/>
+        <Node id="admin/addguest.xhtml" x="375" y="385" zoom="true"/>
+        <Node id="admin/reload.xhtml" x="5" y="230" zoom="true"/>
+        <Node id="admin/treatmentadmin.xhtml" x="643" y="237" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

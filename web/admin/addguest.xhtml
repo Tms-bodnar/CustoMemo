@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Registration</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <div class="login">
+            <h3><h:outputText value="Add new guest for #{admin.user.name}"/></h3>
+            <h:form>
+                <h:inputText pt:placeholder="Name" binding="#{name}"/>
+                <h:inputText pt:placeholder="Phone" binding="#{phone}"/>
+                <h:inputText pt:placeholder="E-mail" binding="#{email}"/>
+                <div align="center">
+                <h:outputText value="Pest?"/>
+                </div>
+                <div align="center">
+                <h:selectBooleanCheckbox value="false" binding="#{pest}" style="align-content: flex-end"/><br/>
+                </div>
+                <div align="center">
+                <h:outputText value="Buda?"/>
+                </div>
+                <div align="center">
+                <h:selectBooleanCheckbox value="false" binding="#{buda}" style="align-content: flex-end"/><br/>
+                </div>
+                <div align="center">
+                <h:outputText value="Permanent?"/>
+                </div>
+                <div align="center">
+                <h:selectBooleanCheckbox value="false" binding="#{perm}" style="align-content: flex-end"/><br/>
+                </div>
+                <div align="center">
+                <h:outputText value="Casual?"/>
+                </div>
+                <div align="center">
+                <h:selectBooleanCheckbox value="false" binding="#{casual}" style="align-content: flex-end"/><br/>
+                </div>
+                <h:commandButton value="Save" class="btn btn-primary btn-block btn-large"  action="admin/guestsadmin" actionListener="#{admin.saveGuest(admin.user, name.value, phone.value, email.value, pest.value, buda.value, perm.value, casual.value)}"/><br/>
+                                       
+                
+                <h:commandButton value="Cancel" action="admin/guestsadmin" class="btn btn-primary btn-block btn-large"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

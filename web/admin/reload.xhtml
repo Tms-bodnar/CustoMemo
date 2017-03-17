@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        
+    </h:head>
+    <h:body>
+        <h:commandButton action="admin/admin" rendered="false" />
+             <!--   <div class="login-list-one">
+                <h:form>
+                 <h:inputText id="searchstring" pt:placeholder="Choose your guest" value="#{admin.searchString}" style="width: 250px">
+                        <f:ajax execute="searchstring" render="list" event="keyup"  listener="#{admin.nameSearch(admin.user, admin.searchString)}"/>
+                </h:inputText >
+                
+                <h:dataTable   var="guest" id="list" value="#{admin.nameSearch(admin.user, admin.searchString)}">
+                    <h:column>
+                        <h:outputText value="#{guest.name}"/>
+                   </h:column>
+                    <h:column>
+                        <h:commandButton value="OK" class="btn btn-primary btn-small" style="height: 12px" action="#{admin.setGuest(guest)}"/>   
+                   </h:column>
+            </h:dataTable>
+                </h:form>
+            
+                </div>
+    <div class="login-list-one" >
+                <h:form>
+                    <h:inputText id="treSearch" pt:placeholder="Choose your treatment" value="#{admin.treSearch}" style="width: 250px">
+                        <f:ajax execute="treSearch" render="list2" event="keyup"  listener="#{admin.treatmentSearch(admin.user, admin.treSearch)}"/>
+                </h:inputText >
+                </h:form>
+ 
+                <h:form>
+                
+                <h:dataTable   var="treatment" id="list2" value="#{admin.treatmentSearch(admin.user, admin.treSearch)}">
+                    <h:column>
+                        <h:outputText value="#{treatment.type}"/>
+                   </h:column>
+                    <h:column>
+                        <h:commandButton value="OK" class="btn btn-primary btn-small" style="height: 12px" action="#{admin.setTreatment(treatment)}"/>   
+                   </h:column>
+            </h:dataTable>
+                </h:form>
+                </div>
+        <div class="login_list_one login_input" style="width: 300px">
+        <h:form id="form">
+    <p:growl id="msgs" showDetail="true"  />
+    <p:calendar id="datetime" mode="popup" showOn="button" class="login_input" value="#{admin.date}" pattern="MM/dd/yyyy HH:mm:ss" showMillisec="false" showSecond="false" placeholder="Choose a date" size="30" stepMinute="30" showHour="true"  showMinute="true" showButtonPanel="true"/>        
+    <p:commandButton value="Submit" style="display: inline-table" class="btn btn-primary btn-block btn-line" update="msgs" actionListener="#{calendarView.click}" icon="ui-icon-check" />
+   <h:outputText value="#{admin.date}">
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:outputText>
+        </h:form>
+            </div>
+        <div class="login_list_one login_input" style="width: 300px">
+            <h4>Booking datas:</h4>
+            <h:inputText id="username" pt:placeholder="User name" value="#{admin.user}" required="true"/><br/>
+            <h:inputText id="guestname" pt:placeholder="Guest name" value="#{admin.guest}" required="true"/><br/>
+            <h:inputText id="treatmentname" pt:placeholder="Treatment type" value="#{admin.treatment}" required="true"/><br/>
+            <h:inputText id="date" pt:placeholder="Treatment date" value="#{admin.date}" required="true"/><br/>
+            <h:form>
+                <h:commandButton value="OK" style="display: inline-table" class="btn btn-primary btn-block btn-line" actionListener="#{admin.saveEvent(admin.guest, admin.treatment, admin.user, admin.date)}">
+                    <f:actionListener binding="#{admin.setNull()}"/>
+                </h:commandButton>
+        </h:form>
+        </div>-->
+    </h:body>
+</html>
+

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Registration</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <div class="login">
+            <h:form>
+                <h:inputText pt:placeholder="Name" binding="#{name}" required="true"/>
+                <h:inputText pt:placeholder="User name" binding="#{username}" required="true"/>
+                <h:inputSecret pt:placeholder="Password" binding="#{password}" required="true"/>
+                <h:inputText pt:placeholder="E-mail" binding="#{email}" required="true"/>
+                <h:commandButton value="Save" action="#{admin.saveUser(name.value, username.value, password.value, email.value)}" class="btn btn-primary btn-block btn-large"/><br/>
+                <h:commandButton value="Cancel" action="index" class="btn btn-primary btn-block btn-large"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

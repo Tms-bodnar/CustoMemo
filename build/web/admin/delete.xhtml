@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Delete</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <div class="login">
+
+            <h3>Delete #{admin.guest.name} </h3>
+            <h:form>
+
+                    <h:commandButton value="Yes, delete!" action="#{admin.deleteGuest(admin.guest)}" rendered="#{!admin.deleting}" class="btn btn-primary btn-block btn-large btn-line">
+                        <f:actionListener binding="#{admin.setDeleting(true)}"/>
+                </h:commandButton>
+                <h:commandButton value="Cancel" action="admin" rendered="#{!admin.deleting}" class="btn btn-primary btn-block btn-large btn-line"/>
+                <h:commandButton value="Deleted, back to admin" action="admin/guestsadmin" rendered="#{admin.deleting}" class="btn btn-primary btn-block btn-large btn-line" style="width: 300px">
+                        <f:actionListener binding="#{admin.setDeleting(false)}"/>
+                        </h:commandButton>
+            </h:form>
+
+        </div>
+        <br/>
+    </h:body>
+</html>
+

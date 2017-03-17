@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Guests Admin</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <div class="list" >
+            <div class="centered">
+                <h3><h:outputText rendered="#{!admin.editable}" value="Guest Administation"/></h3>
+        <h3><h:outputText rendered="#{!admin.editable}" value="Hello, #{admin.user.name}"/></h3>
+        <br/>
+        
+        <h:form rendered="#{!admin.editable}">
+                
+                <h:inputText id="searchstring" pt:placeholder="Name search" value="#{admin.searchString}" style="width: 500px">
+                        <f:ajax execute="searchstring" render="list" event="keyup"  listener="#{admin.nameSearch(admin.user, admin.searchString)}"/>
+                </h:inputText >
+                <h:commandButton value="New guest" class="btn btn-primary btn-block btn-large btn-line" style="width:250px" action="addguest"/>
+                <h:commandButton value="Back" style="width:250px" class="btn btn-primary btn-block btn-large btn-line" action="admin/admin" rendered="#{!admin.editable}" >
+                    <f:actionListener binding="#{admin.setEditable(false)}"/>
+                </h:commandButton>
+                <h:dataTable class="table_one td_one" var="guest" id="list" value="#{admin.nameSearch(admin.user, admin.searchString)}" rendered="#{!admin.editable}">
+                    
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name"/>
+                       
+                        
+                    </f:facet>
+                    <h:outputText value="#{guest.name}" rendered="#{!admin.editable}"/>
+                    <h:inputText value="#{guest.name}" binding="#{newname}" rendered="#{admin.editable}"/>
+                    
+                </h:column>
+                    
+                <h:column
+                    ><f:facet name="header">
+                        Phone
+                    </f:facet>
+            <h:outputText value="#{guest.phone}"  rendered="#{!admin.editable}" />
+            <h:inputText value="#{guest.phone}" binding="#{newphone}" rendered="#{admin.editable}"/>
+        </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        E-mail
+                    </f:facet>
+            <h:outputText value="#{guest.email}"  rendered="#{!admin.editable}"/>
+            <h:inputText value="#{guest.email}" binding="#{newemail}" rendered="#{admin.editable}"/>
+          
+        </h:column>
+ 
+                <h:column >
+                    <f:facet name="header">
+                        Pest / Buda
+                    </f:facet>
+                    <h:outputText rendered="#{guest.pest!=null and !admin.editable}" value="#{guest.getPestiE()}"/>
+                    <h:selectBooleanCheckbox rendered="#{admin.editable}"  binding="#{newpest}" value="#{guest.pest}" style="width: 50px"/>
+                    <h:selectBooleanCheckbox rendered="#{admin.editable}"  binding="#{newbuda}" value="#{guest.buda}" style="width: 50px"/>
+
+        </h:column>
+                     
+                <h:column>
+                    <f:facet name="header">
+                        Permanent / casual
+                    </f:facet>
+                    <h:outputText rendered="#{guest.rendszeres!=null and !admin.editable}" value="#{guest.getRendszeresE()}"/>
+                    <h:selectBooleanCheckbox rendered="#{admin.editable}"  binding="#{newperm}" value="#{guest.rendszeres}" style="width: 50px"/>
+                    <h:selectBooleanCheckbox rendered="#{admin.editable}"  binding="#{newcasual}" value="#{guest.alkalmi}" style="width: 50px"/>
+                    
+        </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        Edit
+                    </f:facet>
+                    
+                    <h:commandButton id="editbtn" value="Edit" class="btn btn-primary btn-block btn-large btn-line" rendered="#{!admin.editable}" action="#{admin.setGuest(guest)}"> 
+                        <f:actionListener binding="#{admin.setEditable(true)}"/>              
+                    </h:commandButton>
+                    <h:commandButton id="delbtn" value="Delete" class="btn btn-primary btn-block btn-large btn-line" rendered="#{!admin.editable}" actionListener="#{admin.setGuest(guest)}" action="delete"> 
+                        <f:actionListener binding="#{admin.setEditable(false)}"/>  
+                        
+                    </h:commandButton>
+                    
+                 </h:column>
+                </h:dataTable>
+            </h:form>  
+        <h:form rendered="#{admin.editable}" class="login" style="margin-top: 1%">
+            <br/>
+            <br/>
+            <h3><h:outputText value="#{admin.guest.name} szerkesztése"/></h3>
+            <h:inputText value="#{admin.guest.name}" binding="#{newname}"/>
+            <h:inputText value="#{admin.guest.phone}" binding="#{newphone}"/>
+            <h:inputText value="#{admin.guest.email}" binding="#{newemail}"/>
+            <div align="center">
+            <h:outputText value="Pest?"/><br/>
+            <h:selectBooleanCheckbox value="#{admin.guest.pest}" binding="#{newpest}" style="align-items: flex-end"/>
+            <h:outputText value="Buda?"/><br/>
+            <h:selectBooleanCheckbox value="#{admin.guest.buda}" binding="#{newbuda}" style="align-items: flex-end"/><br/>
+            <h:outputText value="Permanent?"/><br/>
+            <h:selectBooleanCheckbox value="#{admin.guest.rendszeres}" binding="#{newperm}" style="align-items: flex-end"/>
+            <h:outputText value="Casual?"/><br/>
+            <h:selectBooleanCheckbox value="#{admin.guest.alkalmi}" binding="#{newcasual}" style="align-items: flex-end"/>
+            </div>
+            
+            <h:commandButton id="OK" value="OK" class="btn btn-primary btn-block btn-large">
+                        <f:actionListener  binding="#{admin.editGuest(newname.value, newphone.value, newemail.value, newpest.value, newbuda.value, newperm.value, newcasual.value)}"/>
+                        <f:actionListener binding="#{admin.setEditable(false)}"/>
+            </h:commandButton><br/>
+            <h:commandButton value="Back" class="btn btn-primary btn-block btn-large" rendered="#{admin.editable}" >
+                    <f:actionListener binding="#{admin.setEditable(false)}"/>
+                </h:commandButton>
+        </h:form>
+
+        </div>
+
+        </div>
+        
+       
+    </h:body>
+</html>
+

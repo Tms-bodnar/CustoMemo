@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>New treatment</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <div class="login">
+            <h3><h:outputText value="Add new treatment for #{admin.user.name}"/></h3>
+            <h:form>
+                <h:inputText pt:placeholder="Type" binding="#{type}" required="true"/>
+                <h:inputText pt:placeholder="Price" binding="#{price}" required="true"/>
+                <h:inputText pt:placeholder="Time" binding="#{time}" required="true"/>
+                
+                <h:commandButton value="Save" class="btn btn-primary btn-block btn-large" action="treadmin" actionListener="#{admin.saveTreatment(admin.user, type.value, price.value, time.value)}" /><br/>
+                                       
+                
+                <h:commandButton value="Cancel" action="treadmin" class="btn btn-primary btn-block btn-large"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+
