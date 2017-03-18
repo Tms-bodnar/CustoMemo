@@ -5,8 +5,8 @@
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/custojvm_gabiconn</property>
-    <property name="hibernate.connection.username">custojvm_root</property>
-    <property name="hibernate.connection.password">asdfghjk1234</property>
+    <property name="hibernate.connection.username">****</property>
+    <property name="hibernate.connection.password">****</property>
     <mapping resource="pojos/Treatment.hbm.xml"/>
     <mapping resource="pojos/Event.hbm.xml"/>
     <mapping resource="pojos/Guests.hbm.xml"/>
