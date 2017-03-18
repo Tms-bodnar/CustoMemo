@@ -36,6 +36,7 @@ import pojos.Event;
 /**
  *
  * @author Bodnár Tamás <tms.bodnar@gmail.com> | www.kalandlabor.hu
+ * This is a developer, beta version, without comments and documentation!  Please, read it cautiously :-)
  */
 @ManagedBean
 @SessionScoped
